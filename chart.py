@@ -19,7 +19,8 @@ class Chart(QWidget):
         aux = self.fecha.split("-")
         y,m,d = int(aux[0]),int(aux[1]),int(aux[2])
 
-        series = QLineSeries()
+        series = QLineSeries(name="Temperatura")
+        series2 = QLineSeries(name="Temperatura 2")
         for item in self.data:
             """Spliteamos cada fecha obtenida de la base de datos para luego convertirla en datetime y poder compararla"""
             sp1 = item['fecha'].split(" ")
@@ -29,10 +30,13 @@ class Chart(QWidget):
 
             if(itemDate == datetime.datetime(y,m,d) and item['secadora'] == self.secadora):
                 series.append(QDateTime.fromString(item['fecha'], "yyyy-MM-dd hh:mm:ss").toMSecsSinceEpoch(), float(item['temperatura']))
+                series2.append(QDateTime.fromString(item['fecha'], "yyyy-MM-dd hh:mm:ss").toMSecsSinceEpoch(), float(item['temperatura2']))
 
+        
         # Create Chart and set General Chart setting
         chart = QChart()
         chart.addSeries(series)
+        chart.addSeries(series2)
         chart.setTitle(f'Registros de temperatura secadora {self.secadora}')
         chart.setAnimationOptions(QChart.SeriesAnimations)
 

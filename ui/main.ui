@@ -567,6 +567,37 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
       </item>
      </layout>
     </widget>
+    <widget class="QLabel" name="logoLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>1130</x>
+       <y>40</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../resources/logomsi.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
     <zorder>dataTable</zorder>
     <zorder>formLayoutWidget</zorder>
     <zorder>verticalLayoutWidget</zorder>
@@ -580,6 +611,7 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
     <zorder>gridLayoutWidget</zorder>
     <zorder>labelChart</zorder>
     <zorder>gridLayoutWidget_2</zorder>
+    <zorder>logoLabel</zorder>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
