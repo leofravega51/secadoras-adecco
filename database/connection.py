@@ -10,7 +10,8 @@ import json
 config = {
     'user': 'root',
     'passwd': 'msi1324',
-    'host': 'localhost',
+    'host': '192.168.0.181',
+    'port': '3306',
     'database': 'registro_temp',
     
 }
