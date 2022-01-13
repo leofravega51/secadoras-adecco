@@ -54,6 +54,7 @@ class Chart(QWidget):
         axisY.setTitleText("Temperatura °C")
         chart.addAxis(axisY, Qt.AlignLeft)
         series.attachAxis(axisY)
+        series2.attachAxis(axisY)
 
         # Create a QChartView object with QChart as a parameter. This way we don't need to create the QGraphicsView scene ourselves. We also set the Antialiasing on to have the rendered lines look nicer.
         chartView = QChartView(chart)

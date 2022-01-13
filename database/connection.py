@@ -5,6 +5,7 @@ import sys
 import mysql.connector as connector
 import datetime
 import json
+import random
 
 
 config = {
@@ -67,3 +68,34 @@ def getData():
     finally:
         cursor.close()
         conn.close()
+
+def hardcodearTemperaturas():
+
+    data = getData()
+    conn = dbConnection()
+    cursor = conn.cursor(buffered=True)
+
+    for item in data:
+        if(item['secadora'] == "AGRIMAQ 3"):
+            temp_random = random.uniform(float(item['temperatura'])-2, float(item['temperatura'])+2)
+            updateQuery = f'UPDATE temperaturas SET Temperatura2={temp_random} WHERE id={item["id"]} AND Secadora="{item["secadora"]}"'
+            cursor.execute(updateQuery)
+        elif(item['secadora'] == "KW 325"):
+            temp_random = random.uniform(float(item['temperatura'])-2, float(item['temperatura'])+2)
+            updateQuery = f'UPDATE temperaturas SET Temperatura2={temp_random} WHERE id={item["id"]} AND Secadora="{item["secadora"]}"'
+            cursor.execute(updateQuery)
+        elif(item['secadora'] == "FARM 7"):
+            temp_random = random.uniform(float(item['temperatura'])-2, float(item['temperatura'])+2)
+            updateQuery = f'UPDATE temperaturas SET Temperatura2={temp_random} WHERE id={item["id"]} AND Secadora="{item["secadora"]}"'
+            cursor.execute(updateQuery)
+        elif(item['secadora'] == "FARM 9"):
+            temp_random = random.uniform(float(item['temperatura'])-2, float(item['temperatura'])+2)
+            updateQuery = f'UPDATE temperaturas SET Temperatura2={temp_random} WHERE id={item["id"]} AND Secadora="{item["secadora"]}"'
+            cursor.execute(updateQuery)
+
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+hardcodearTemperaturas()

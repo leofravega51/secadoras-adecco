@@ -560,6 +560,11 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
         </item>
         <item>
          <property name="text">
+          <string>FARM 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string>FARM 9</string>
          </property>
         </item>
