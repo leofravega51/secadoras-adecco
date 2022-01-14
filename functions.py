@@ -96,7 +96,7 @@ def sortByInput(dataTable, columnOfInterest, valueOfInterest):
     
 
 def drawChart(self):
-    if(self.chart_input and self.chart_date):
+    if(self.chart_input and self.chart_date and self.chart_input != "Secadora"):
         self.chart = Chart(self.chart_input, self.chart_date, self.temperaturas)
         self.chart.resize(1280, 700)
         self.chart.show()
