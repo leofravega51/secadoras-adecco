@@ -291,10 +291,10 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>140</y>
+       <x>280</x>
+       <y>80</y>
        <width>201</width>
-       <height>101</height>
+       <height>61</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="selectFilterLayout">
@@ -354,6 +354,9 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);
 font: 75 12pt &quot;Arial Narrow&quot;;</string>
+        </property>
+        <property name="placeholderText">
+         <string>Ingrese el valor a buscar</string>
         </property>
        </widget>
       </item>
@@ -424,12 +427,12 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="labelFilter">
+    <widget class="QLabel" name="labelFilterByDates">
      <property name="geometry">
       <rect>
        <x>40</x>
        <y>50</y>
-       <width>41</width>
+       <width>101</width>
        <height>21</height>
       </rect>
      </property>
@@ -437,7 +440,7 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
       <string notr="true">font: 75 14pt &quot;Arial Narrow&quot;;</string>
      </property>
      <property name="text">
-      <string>Filtros</string>
+      <string>Filtro por fecha</string>
      </property>
     </widget>
     <widget class="QWidget" name="gridLayoutWidget">
@@ -603,6 +606,22 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QLabel" name="labelFilterByColumn">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>50</y>
+       <width>131</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 14pt &quot;Arial Narrow&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Filtro por columna</string>
+     </property>
+    </widget>
     <zorder>dataTable</zorder>
     <zorder>formLayoutWidget</zorder>
     <zorder>verticalLayoutWidget</zorder>
@@ -612,11 +631,12 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
     <zorder>lineRight</zorder>
     <zorder>lineBottom</zorder>
     <zorder>titleLabel</zorder>
-    <zorder>labelFilter</zorder>
+    <zorder>labelFilterByDates</zorder>
     <zorder>gridLayoutWidget</zorder>
     <zorder>labelChart</zorder>
     <zorder>gridLayoutWidget_2</zorder>
     <zorder>logoLabel</zorder>
+    <zorder>labelFilterByColumn</zorder>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
