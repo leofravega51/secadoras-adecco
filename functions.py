@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QTableView, QHeaderView, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QTableView, QHeaderView, QVBoxLayout, QTreeWidgetItem
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtCore import Qt
 from database.connection import getData
@@ -56,7 +56,7 @@ def setChartInput(self, text):
 def getFilterText(self, text):
     self.input_data = text
     if(self.column_filter != None):
-        sortByInput(self.dataTable, self.column_filter, self.input_data)
+        self.form_data = sortByInput(self.dataTable, self.column_filter, self.input_data)
     
 def sortByDates(dataTable, columnOfInterest, beginDate, endDate):
     """"""
@@ -86,14 +86,20 @@ def sortByInput(dataTable, columnOfInterest, valueOfInterest):
     """valueOfInteres: hace referencia al valor ingresado para buscar en la tabla
        columnOfInterest: hace referencia a la columna en la cual queremos buscar el valor, la obtenemos 
         desde el select
+
+        Este algoritmo se encarga de "esconder" todas las filas que no coincidan con la busqueda.
     """
+    form_data = []
     for rowIndex in range(dataTable.rowCount()):
         twItem = dataTable.item(rowIndex, columnOfInterest)
         if str.startswith(str(twItem.text()), str(valueOfInterest)):
             dataTable.setRowHidden(rowIndex, False)
+            form_data += "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % twItem[0]
+            # form_data.append(QTreeWidgetItem((str(twItem[0]), str(twItem[1]), str(twItem[2]), str(twItem[3]), str(twItem[4]), str(twItem[5]), str(twItem[6]), str(twItem[7]), str(twItem[8]))))
         else:
             dataTable.setRowHidden(rowIndex, True)
     
+    return form_data
 
 def drawChart(self):
     if(self.chart_input and self.chart_date and self.chart_input != "Secadora"):

@@ -98,4 +98,4 @@ def hardcodearTemperaturas():
     cursor.close()
     conn.close()
 
-hardcodearTemperaturas()
+# hardcodearTemperaturas()

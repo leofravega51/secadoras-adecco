@@ -22,6 +22,7 @@ class Weather(QMainWindow):
         self.chart_date = None
         self.chart_input = None
         self.temperaturas = None
+        self.form_data = None
 
         """Obtenemos los datos de la BD y los mostramos en la tabla de la app"""
         insertInDataTable(self)
@@ -44,7 +45,7 @@ class Weather(QMainWindow):
         """Creamos un grafico de tendencias y lo mostramos"""
         self.drawChartButton.clicked.connect(lambda x: drawChart(self))
 
-
+        print(self.form_data)
 
 
 if __name__ == '__main__':
