@@ -113,14 +113,14 @@
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>false</bool>
      </attribute>
-     <attribute name="horizontalHeaderMinimumSectionSize">
-      <number>110</number>
-     </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>110</number>
      </attribute>
      <attribute name="horizontalHeaderHighlightSections">
       <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>110</number>
      </attribute>
      <attribute name="horizontalHeaderStretchLastSection">
       <bool>true</bool>
@@ -622,6 +622,26 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
       <string>Filtro por columna</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="exportToExcelButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>170</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Arial Narrow&quot;;
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Exportar a Excel</string>
+     </property>
+    </widget>
     <zorder>dataTable</zorder>
     <zorder>formLayoutWidget</zorder>
     <zorder>verticalLayoutWidget</zorder>
@@ -637,6 +657,7 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
     <zorder>gridLayoutWidget_2</zorder>
     <zorder>logoLabel</zorder>
     <zorder>labelFilterByColumn</zorder>
+    <zorder>exportToExcelButton</zorder>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
