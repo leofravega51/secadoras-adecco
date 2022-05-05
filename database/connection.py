@@ -73,27 +73,49 @@ def getDataByDateAndInput(begin_date, end_date, column_filter, input_data):
     conn = dbConnection()
     cursor = conn.cursor(buffered=True)
     
-    if(column_filter==2):
-        query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Secadora LIKE %s; """
-    if(column_filter==3):
-        query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Temperatura LIKE %s; """
-    if(column_filter==4):
-        query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Temperatura2 LIKE %s; """
-    if(column_filter==5):
-        query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Humedad LIKE %s; """
-    if(column_filter==6):
-        query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Operador LIKE %s; """
-    if(column_filter==7):
-        query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Variedad LIKE %s; """
-    if(column_filter==8):
-        query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Batch LIKE %s; """        
-    
+    if(begin_date == end_date):
+        tuple = (begin_date, "%" + input_data + "%")
+
+        if(column_filter==2):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE DATE(Fecha)=%s AND Secadora LIKE %s; """
+        if(column_filter==3):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE DATE(Fecha)=%s AND Temperatura LIKE %s; """
+        if(column_filter==4):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE DATE(Fecha)=%s AND Temperatura2 LIKE %s; """
+        if(column_filter==5):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE DATE(Fecha)=%s AND Humedad LIKE %s; """
+        if(column_filter==6):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE DATE(Fecha)=%s AND Operador LIKE %s; """
+        if(column_filter==7):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE DATE(Fecha)=%s AND Variedad LIKE %s; """
+        if(column_filter==8):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE DATE(Fecha)=%s AND Batch LIKE %s; """
+    else:
+        tuple = (begin_date, end_date, "%" + input_data + "%")
+
+        if(column_filter==2):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Secadora LIKE %s; """
+        if(column_filter==3):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Temperatura LIKE %s; """
+        if(column_filter==4):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Temperatura2 LIKE %s; """
+        if(column_filter==5):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Humedad LIKE %s; """
+        if(column_filter==6):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Operador LIKE %s; """
+        if(column_filter==7):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Variedad LIKE %s; """
+        if(column_filter==8):
+            query = """SELECT id, Fecha, Secadora, Temperatura, Temperatura2, Humedad, Operador, Variedad, Batch FROM temperaturas WHERE Fecha BETWEEN %s AND %s AND Batch LIKE %s; """        
+        
     time_format = f = '%Y-%m-%d %H:%M:%S'
     data = []
-    tuple = (begin_date, end_date, "%" + input_data + "%")
     
     try:
+        print(tuple)
+        print(query)
         cursor.execute(query, tuple)
+
         response = cursor.fetchall()
         print(response)
 
@@ -254,6 +276,10 @@ def hardcodearTemperaturas():
             updateQuery = f'UPDATE temperaturas SET Temperatura2={temp_random} WHERE id={item["id"]} AND Secadora="{item["secadora"]}"'
             cursor.execute(updateQuery)
         elif(item['secadora'] == "FARM 9"):
+            temp_random = random.uniform(float(item['temperatura'])-2, float(item['temperatura'])+2)
+            updateQuery = f'UPDATE temperaturas SET Temperatura2={temp_random} WHERE id={item["id"]} AND Secadora="{item["secadora"]}"'
+            cursor.execute(updateQuery)
+        elif(item['secadora'] == "FARM 6"):
             temp_random = random.uniform(float(item['temperatura'])-2, float(item['temperatura'])+2)
             updateQuery = f'UPDATE temperaturas SET Temperatura2={temp_random} WHERE id={item["id"]} AND Secadora="{item["secadora"]}"'
             cursor.execute(updateQuery)

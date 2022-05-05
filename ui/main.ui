@@ -33,6 +33,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="background_frame">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -448,7 +451,7 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
       <rect>
        <x>880</x>
        <y>80</y>
-       <width>181</width>
+       <width>191</width>
        <height>31</height>
       </rect>
      </property>
@@ -520,13 +523,13 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
      <property name="geometry">
       <rect>
        <x>880</x>
-       <y>120</y>
-       <width>181</width>
-       <height>88</height>
+       <y>110</y>
+       <width>191</width>
+       <height>141</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="chartSecadoraLayout">
-      <item row="1" column="0">
+      <item row="3" column="0">
        <widget class="QPushButton" name="drawChartButton">
         <property name="styleSheet">
          <string notr="true">font: 75 12pt &quot;Arial Narrow&quot;;
@@ -563,6 +566,11 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
         </item>
         <item>
          <property name="text">
+          <string>FARM 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string>FARM 7</string>
          </property>
         </item>
@@ -571,6 +579,28 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
           <string>FARM 9</string>
          </property>
         </item>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QSpinBox" name="tempMin">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 75 12pt &quot;Arial Narrow&quot;;</string>
+        </property>
+        <property name="specialValueText">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QSpinBox" name="tempMax">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 75 12pt &quot;Arial Narrow&quot;;</string>
+        </property>
+        <property name="specialValueText">
+         <string>Temperatura maxima</string>
+        </property>
        </widget>
       </item>
      </layout>
@@ -628,7 +658,7 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>175</x>
        <y>170</y>
        <width>111</width>
        <height>28</height>
@@ -640,6 +670,80 @@ background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Exportar a Excel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="filterTableButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>43</x>
+       <y>170</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Arial Narrow&quot;;
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Filtrar</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="clearFilterButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>43</x>
+       <y>210</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Arial Narrow&quot;;
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Limpiar filtro</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelTempMin">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>150</y>
+       <width>141</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 14pt &quot;Arial Narrow&quot;;
+text-align: &quot;center&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Temperatura minima</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelTempMax">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>185</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 14pt &quot;Arial Narrow&quot;;
+text-align: &quot;center&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Temperatura maxima</string>
      </property>
     </widget>
     <zorder>dataTable</zorder>
@@ -658,6 +762,10 @@ background-color: rgb(255, 255, 255);</string>
     <zorder>logoLabel</zorder>
     <zorder>labelFilterByColumn</zorder>
     <zorder>exportToExcelButton</zorder>
+    <zorder>filterTableButton</zorder>
+    <zorder>clearFilterButton</zorder>
+    <zorder>labelTempMin</zorder>
+    <zorder>labelTempMax</zorder>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
