@@ -86,25 +86,6 @@ class Chart(QWidget):
         self.setLayout(layout)
         self.setWindowTitle("Gráfico de tendencias")
 
-        #   # creating menu bar
-        # mainMenu = self.menuBar()
- 
-        # # adding file menu in it
-        # fileMenu = mainMenu.addMenu("File")
- 
-        # # creating save action
-        # saveAction = QAction("Save", self)
- 
-        # # setting save action shortcut
-        # saveAction.setShortcut("Ctrl + S")
- 
-        # # adding save action to filemenu
-        # fileMenu.addAction(saveAction)
- 
-        # # setting triggered method
-        # saveAction.triggered.connect(self.save(self))
-
-
 
 # app = QApplication(sys.argv)
 # chart = Chart()
