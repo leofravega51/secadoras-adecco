@@ -1,6 +1,5 @@
 import sys
 from PyQt5 import uic
-from PyQt5.QtGui import QTextDocument
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from database.connection import getData
 from functions import insertInDataTable, getDate, getFilterText, setColumnFilter, setBeginDate, setEndDate, drawChart, setChartDate, setChartInput, exportToExcel, enableButton, filterTable, clearFilterTable, setMaxTemp, setMinTemp
@@ -23,7 +22,6 @@ class Weather(QMainWindow):
         self.form_data = None
         self.temp_min = None
         self.temp_max = None
-        self.documento = QTextDocument()
 
         """Obtenemos los datos de la BD y los mostramos en la tabla de la app"""
         insertInDataTable(self)
@@ -48,8 +46,8 @@ class Weather(QMainWindow):
             lambda date: setChartDate(self, date))
         self.chartComboBox.currentTextChanged.connect(
             lambda text: setChartInput(self, text))
-        self.tempMin.valueChanged.connect( lambda min: setMinTemp(self, min))
-        self.tempMax.valueChanged.connect( lambda max: setMaxTemp(self, max))
+        self.tempMin.valueChanged.connect(lambda min: setMinTemp(self, min))
+        self.tempMax.valueChanged.connect(lambda max: setMaxTemp(self, max))
 
         """Creamos un grafico de tendencias y lo mostramos"""
         self.drawChartButton.clicked.connect(lambda x: drawChart(self))

@@ -31,14 +31,18 @@ def insertInDataTable(self):
             rowPosition, 7, QtWidgets.QTableWidgetItem(str(item['variedad'])))
         self.dataTable.setItem(
             rowPosition, 8, QtWidgets.QTableWidgetItem(str(item['batch'])))
-        
+
         if(float(item["temperatura"]) < 30):
-            setColorToRow(self.dataTable, rowPosition, columnCount, QtGui.QColor(135,206,235))
+            setColorToRow(self.dataTable, rowPosition,
+                          columnCount, QtGui.QColor(135, 206, 235))
         elif(float(item["temperatura"]) >= 30 and float(item["temperatura"]) < 60):
-            setColorToRow(self.dataTable, rowPosition, columnCount, QtGui.QColor(180,255,159))
+            setColorToRow(self.dataTable, rowPosition,
+                          columnCount, QtGui.QColor(180, 255, 159))
         else:
-            setColorToRow(self.dataTable, rowPosition, columnCount, QtGui.QColor(218,18,18))
-        
+            setColorToRow(self.dataTable, rowPosition,
+                          columnCount, QtGui.QColor(218, 18, 18))
+
+
 def setColorToRow(dataTable, rowPosition, columnCount, color):
     for col in range(columnCount):
         dataTable.item(rowPosition, col).setBackground(color)
@@ -99,7 +103,7 @@ def filterTable(self):
 
 
 def sortByDatesAndInput(self):
-    
+
     for rowIndex in range(self.dataTable.rowCount()):
         twItem = self.dataTable.item(rowIndex, 1)
         inputItem = self.dataTable.item(rowIndex, self.column_filter)
@@ -116,7 +120,6 @@ def sortByDatesAndInput(self):
             splitEndDate[1]), int(splitEndDate[2])
         bDate = datetime.datetime(by, bm, bd)
         eDate = datetime.datetime(ey, em, ed)
-
 
         if bDate == eDate and bDate == itemDate and str.startswith(str(inputItem.text()), str(self.input_data)):
             self.dataTable.setRowHidden(rowIndex, False)
@@ -165,8 +168,6 @@ def sortByInput(dataTable, columnOfInterest, valueOfInterest):
 
         if str.startswith(str(twItem.text()), str(valueOfInterest)):
             dataTable.setRowHidden(rowIndex, False)
-            # form_data += "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % twItem[0]
-            # form_data.append(QTreeWidgetItem((str(twItem[0]), str(twItem[1]), str(twItem[2]), str(twItem[3]), str(twItem[4]), str(twItem[5]), str(twItem[6]), str(twItem[7]), str(twItem[8]))))
         else:
             dataTable.setRowHidden(rowIndex, True)
 
@@ -179,11 +180,14 @@ def clearFilterTable(self):
     for rowIndex in range(self.dataTable.rowCount()):
         self.dataTable.setRowHidden(rowIndex, False)
 
+
 def setMinTemp(self, min):
     self.temp_min = min
 
+
 def setMaxTemp(self, max):
     self.temp_max = max
+
 
 def drawChart(self):
     if(self.chart_input and self.chart_date and self.chart_input != "Secadora"):
@@ -226,10 +230,6 @@ def exportToExcel(self):
             self.exportData = getDataByInput(
                 self.column_filter, self.input_data)
 
-    # create column header list
-    # for j in range(self.dataTable.model().columnCount()):
-    #     columnHeaders.append(self.dataTable.horizontalHeaderItem(j).text())
-
     df = pd.DataFrame(columns=columnHeaders)
 
     fecha = str(datetime.datetime.now().strftime("%d-%m-%Y %H-%M-%S"))
@@ -254,5 +254,3 @@ def enableButton(self, button):
         button.setEnabled(True)
     else:
         button.setEnabled(False)
-
-

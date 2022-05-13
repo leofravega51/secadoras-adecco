@@ -568,17 +568,12 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
         </item>
         <item>
          <property name="text">
-          <string>FARM 6</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
           <string>AGRIMAQ 3</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>KW 325</string>
+          <string>FARM 6</string>
          </property>
         </item>
         <item>
@@ -589,6 +584,11 @@ font: 75 12pt &quot;Arial Narrow&quot;;</string>
         <item>
          <property name="text">
           <string>FARM 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>KW 325</string>
          </property>
         </item>
        </widget>

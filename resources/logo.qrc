@@ -1,6 +1,0 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
-    <qresource prefix="logo">
-        <file alias="logomsi.png">logomsi.png</file>
-    </qresource>
-</RCC>

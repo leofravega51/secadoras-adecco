@@ -1,8 +1,0 @@
-<RCC>
-  <qresource prefix="icons">
-    <file alias="filter.png">filter.png</file>
-  </qresource>
-  <qresource prefix="logo">
-    <file>logomsi.png</file>
-  </qresource>
-</RCC>
