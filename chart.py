@@ -25,10 +25,11 @@ class Chart(QWidget):
 
         series = QLineSeries(name="Temperatura")
         series2 = QLineSeries(name="Temperatura 2")
-        series3 = QLineSeries(name="Temperatura minima")
-        series4 = QLineSeries(name="Temperatura maxima")
-        series3 << QPointF(float(0), float(self.temp_min)) << QPointF(float(200), float(self.temp_min))
-        series4 << QPointF(float(0), float(self.temp_max)) << QPointF(float(200), float(self.temp_max))
+        if(self.temp_min and self.temp_max):
+            series3 = QLineSeries(name="Temperatura minima")
+            series4 = QLineSeries(name="Temperatura maxima")
+            series3 << QPointF(float(0), float(self.temp_min)) << QPointF(float(200), float(self.temp_min))
+            series4 << QPointF(float(0), float(self.temp_max)) << QPointF(float(200), float(self.temp_max))
 
 
         for item in self.data:
@@ -46,8 +47,9 @@ class Chart(QWidget):
         chart = QChart()
         chart.addSeries(series)
         chart.addSeries(series2)
-        chart.addSeries(series3)
-        chart.addSeries(series4)
+        if(self.temp_min and self.temp_max):
+            chart.addSeries(series3)
+            chart.addSeries(series4)
         chart.setTitle(f'Registros de temperatura secadora {self.secadora}')
         chart.setAnimationOptions(QChart.SeriesAnimations)
         
@@ -67,8 +69,9 @@ class Chart(QWidget):
         chart.addAxis(axisY, Qt.AlignLeft)
         series.attachAxis(axisY)
         series2.attachAxis(axisY)
-        series3.attachAxis(axisY)
-        series4.attachAxis(axisY)
+        if(self.temp_max and self.temp_min):
+            series3.attachAxis(axisY)
+            series4.attachAxis(axisY)
         
         
         # Create a QChartView object with QChart as a parameter. This way we don't need to create the QGraphicsView scene ourselves. We also set the Antialiasing on to have the rendered lines look nicer.
