@@ -1,10 +1,5 @@
-from PyQt5 import QtGui
-from PyQt5.QtWidgets import QMessageBox
-from tkinter import messagebox
 import sys
 import mysql.connector as connector
-import datetime
-import json
 import random
 
 

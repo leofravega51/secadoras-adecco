@@ -1,14 +1,9 @@
 import sys
 from PyQt5 import uic
-from PyQt5.QtGui import QIcon, QFont, QTextDocument
-from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QMessageBox, QPushButton
+from PyQt5.QtGui import QTextDocument
+from PyQt5.QtWidgets import QMainWindow, QApplication
 from database.connection import getData
 from functions import insertInDataTable, getDate, getFilterText, setColumnFilter, setBeginDate, setEndDate, drawChart, setChartDate, setChartInput, exportToExcel, enableButton, filterTable, clearFilterTable, setMaxTemp, setMinTemp
-from PyQt5.QtChart import QChart, QChartView, QLineSeries, QDateTimeAxis
-from PyQt5.QtCore import QPointF, Qt, QByteArray, QTextCodec
-import datetime
-from chart import Chart
-from printer import Printer
 
 
 class Weather(QMainWindow):

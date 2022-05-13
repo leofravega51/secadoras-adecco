@@ -4,9 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtChart import *
 from database.connection import getData
 import datetime
-import sys
 import pyqtgraph as pg
-import pyqtgraph.exporters
 
 class Chart(QWidget):
  

@@ -1,11 +1,7 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QTableView, QHeaderView, QVBoxLayout, QTreeWidgetItem
 from PyQt5 import QtWidgets, QtGui, QtCore
-from PyQt5.QtCore import Qt
-from database.connection import getData, getDataByDateAndInput, getDataBetweenDate, getDataByInput
+from database.connection import getDataByDateAndInput, getDataBetweenDate, getDataByInput
 import datetime
 from chart import Chart
-from printer import Printer
 from tkinter import messagebox
 import pandas as pd
 
