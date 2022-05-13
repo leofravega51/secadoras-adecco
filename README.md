@@ -11,18 +11,19 @@ App que nos permite:
 
 # Paquetes y programas necesarios para que la aplicacion funcione correctamente:
 
-- Descargar e instalar python3.
-- Instalar pip de python.
+- Descargar e instalar **python3**.
+- Instalar **pip** de python.
+- Un IDE, en lo posible **Visual Estudio Code**
 - Instalar con pip las siguientes librerias: pyqt5, pyqt5-tools, pandas, mysql, pyinstaller.
-- Instalar la extension de python en VSCode para poder ejecutar el codigo mediante el boton de "run". Otra alternativa es ejecutar el comando "python 'Registros secadoras.py'" por consola, desde la carpeta raiz.
-- Contar con MySQL Workbench 8.0 CE instalado, con la base de datos ya creada (registro_temp) y los datos insertados en la tabla (temperaturas). Para crear la base de datos y la tabla con los datos ya predefinidos, tenemos el archivo "Adecco db.sql" donde estan todos los scripts MySQL necesarios.
-- Tambien es necesario instalar MySQL Server.
+- Instalar la **extension de python** en VSCode para poder ejecutar el codigo mediante el boton de "run". Otra alternativa es ejecutar el comando **python 'Registros secadoras.py'** por consola, desde la carpeta raiz.
+- Contar con **MySQL Workbench 8.0 CE** instalado, con la base de datos ya creada (registro_temp) y los datos insertados en la tabla (temperaturas). Para crear la base de datos y la tabla con los datos ya predefinidos, tenemos el archivo "Adecco db.sql" donde estan todos los scripts MySQL necesarios.
+- Tambien es necesario instalar **MySQL Server**.
 
 
 Comando para crear el .exe del archivo.py (por consola, estando en la carpeta raiz del proyecto):
-pyinstaller.exe --onefile --windowed "nombre_archivo.py"
+**pyinstaller.exe --onefile --windowed "nombre_archivo.py"**
 
-Si el comando se ejecuta correctamente, se creara una carpeta llamada "dist" con el archivo .exe dentro. Deberiamos moverlo a la carpeta raiz del proyecto para que no existan problemas con respecto a las rutas de conexion de bd y llamadas de modulos.
+Si el comando se ejecuta correctamente, se creara una carpeta llamada **dist** con el archivo .exe dentro. Deberiamos moverlo a la carpeta raiz del proyecto para que no existan problemas con respecto a las rutas de conexion de bd y llamadas de modulos.
 
 # Pantalla principal de la App
 ![PantallaPpal](https://user-images.githubusercontent.com/43302871/166975959-7849824e-b09a-43b4-8082-010909f9d106.PNG)
@@ -32,4 +33,3 @@ Si el comando se ejecuta correctamente, se creara una carpeta llamada "dist" con
 
 # Alerta de error por datos erroneos al intentar generar el gráfico de tendencias
 ![PantallaErrorGrafico](https://user-images.githubusercontent.com/43302871/166976198-c8500526-8b04-4db5-b9c8-38be01dc39b5.PNG)
-
